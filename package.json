@@ -1,0 +1,23 @@
+{
+  "name": "ricochet",
+  "version": "0.0.1",
+  "description": "Simple online game",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davawen/ricochet.git"
+  },
+  "author": "davawen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davawen/ricochet/issues"
+  },
+  "homepage": "https://github.com/davawen/ricochet#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
