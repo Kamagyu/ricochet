@@ -9,9 +9,37 @@ app.use(express.static('public'));
 
 let io = require('socket.io').listen(server);
 
+users = {};
+class User
+{
+	/**
+	 * 
+	 * @param {string} name 
+	 */
+	constructor(name)
+	{
+		this.name = name;
+	}
+}
+
 io.sockets.on('connection',
 	(socket) =>
 	{
-		console.log(socket.id);
+		socket.on('play',
+			name =>
+			{
+				users[socket.id] = new User(name);
+			}
+		);
+		
+		socket.on('disconnect',
+			() =>
+			{
+				if(users[socket.id])
+				{
+					delete users[socket.id];
+				}
+			}
+		);
 	}
 );
