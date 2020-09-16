@@ -24,17 +24,31 @@ function setup()
 	playButton = createButton("Play")
 	playButton.class("button");
 	playButton.position(width / 2 - 50, height/2 + 20);
+	playButton.mouseClicked(startGame);
 	
 	socket = io.connect();
+}
+
+function startGame()
+{
+	state = 1;
 }
 
 function draw()
 {
 	background(230);
 	
-	noStroke();
-	fill(255);
-	
-	rectMode(CENTER);
-	rect(width/2, height/2, 300, 150);
+	switch(state)
+	{
+		case 0:
+			noStroke();
+			fill(255);
+
+			rectMode(CENTER);
+			rect(width/2, height/2, 300, 150);
+			break;
+		case 1:
+			
+			break;
+	}
 }

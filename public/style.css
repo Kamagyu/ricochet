@@ -13,6 +13,14 @@
 	border-radius: 6px;
 }
 
+.button:hover{
+	background-color: #3c883c;
+}
+
+.button:active{
+	background-color: #235023;
+}
+
 input{
 	font-size: 18px;
 	width: 200px;
@@ -26,4 +34,13 @@ input:focus{
 	font-size: 18px;
 	box-shadow: 0px 0px 5px 0px cadetblue;
 	border: 1px solid #cccccc;
+}
+
+.adsbygoogle.active{
+	position: fixed;
+	margin-left: 10px;
+	display: block;
+}
+.adsbygoogle.inactive{
+	display: none;
 }
