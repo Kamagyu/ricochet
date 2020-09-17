@@ -9,26 +9,28 @@ app.use(express.static('public'));
 
 let io = require('socket.io').listen(server);
 
-users = {};
-class User
+import {User, Reflector, Vector} from './public/depend.js';
+
+let users = {};
+
+let reflectors = [];
+
+for(i = 0; i < 100; i++)
 {
-	/**
-	 * 
-	 * @param {string} name 
-	 */
-	constructor(name)
-	{
-		this.name = name;
-	}
+	reflectors.push( new Reflector((Math.random()-.5)*1400, (Math.random()-.5)*1400) );
 }
 
 io.sockets.on('connection',
 	(socket) =>
 	{
+		//socket.emit('reflectors', reflectors);
+		
 		socket.on('play',
-			name =>
+			data =>
 			{
-				users[socket.id] = new User(name);
+				users[socket.id] = new User(data.name, data.pos);
+				
+				socket.broadcast.emit('user', {id: socket.id, name: data.name, pos: data.pos});
 			}
 		);
 		
