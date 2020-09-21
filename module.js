@@ -59,7 +59,7 @@ class Vector
 	{
 		return this.x * this.x + this.y * this.y;
 	}
-	
+
 	/**
 	 * @description Returns the length of the vector
 	 */
@@ -67,7 +67,7 @@ class Vector
 	{
 		return Math.sqrt(this.magSq());
 	}
-	
+
 	/**
 	 * @description Normalize the component of the vector to be between 0 and 1
 	 */
@@ -75,7 +75,7 @@ class Vector
 	{
 		this.div(this.mag());
 	}
-	
+
 	/**
 	 * @description Returns a copy of the vector
 	 */
@@ -103,30 +103,16 @@ class User
 	/**
 	 * 
 	 * @param {string} name 
+	 * @param {Vector} pos
 	 */
-	constructor(name)
+	constructor(name, pos)
 	{
 		this.name = name;
+		this.pos = pos;
+		this.size = 10;
 	}
 }
 
-/**
- * 
- * @param {number} val1 
- * @param {number} val2 
- * @param {number} val3 
- * @param {number} amt
- */
-
-function lerp3(val1, val2, val3, amt)
-{
-	if(amt < 0.33)
-		return lerp(val1, val2, amt * 3);
-
-	if(amt < 0.66)
-		return lerp(val2, val3, (amt - 0.33) * 3);
-
-	return lerp(val3, val1, (amt - 0.66) * 3);
-}
-
 exports.Vector = Vector;
+exports.Reflector = Reflector;
+exports.User = User;
