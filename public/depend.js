@@ -129,3 +129,4 @@ function lerp3(val1, val2, val3, amt)
 	return lerp(val3, val1, (amt - 0.66) * 3);
 }
 
+exports.Vector = Vector;
